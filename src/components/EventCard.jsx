@@ -29,7 +29,7 @@ export default function EventCard({ attraction, event, showButtons = true }) {
         return (
             <>
                 {!isEvent && (
-                    <article aria-label={`Informasjon om attraksjon med navn: ${attraction.name}`} tabIndex="0">
+                    <article className="attractions" aria-label={`Informasjon om attraksjon med navn: ${attraction.name}`} tabIndex="0">
                         {imageUrl && <img src={imageUrl} alt={`Bilde av ${attraction.name}`} />}
                         <h3 tabIndex="0">{attraction.name}</h3>
                         <Link to={`/event/${slug}`}
@@ -38,11 +38,11 @@ export default function EventCard({ attraction, event, showButtons = true }) {
                 )}
     
                 {isEvent && (
-                    <article 
-                        className="card"
+                    <article
+                        className="events" 
                         aria-label={`Arrangement: ${attraction.name} i ${city}, ${country} på ${venueName}`} 
                         tabIndex="0">
-                        {imageUrl && <img src={imageUrl} className="card-img" alt={`Bilde av ${attraction.name}`} />}
+                        {imageUrl && <img src={imageUrl} alt={`Bilde av ${attraction.name}`} />}
                         <h3 tabIndex="0">{attraction.name}</h3> 
                         <p>{eventDate}</p>
                         <p>{eventTime}</p>
@@ -58,15 +58,15 @@ export default function EventCard({ attraction, event, showButtons = true }) {
     //Denna del visar festivalpassen
     if (event) {
         return (
-            <article aria-label={`Informasjon om arrangement: ${event.name}`} tabIndex="0">
+            <article className="eventcard" aria-label={`Informasjon om arrangement: ${event.name}`} tabIndex="0">
                 {event.image && <img src={event.image} alt={`Bilde av ${event.name}`} />}
                 <h3 tabIndex="0">{event.name}</h3>
-                <div className="venue-date">
+                <div>
                     <p>{event.venue}</p>
                     <p>{event.date}</p>
                 </div>
                 {showButtons && (
-                    <div className="button-flex"> 
+                    <div> 
                         <button type="button" aria-label={`Kjøp billetter til ${event.name}`} tabIndex ="0">Kjøp</button>
                         <button type="button" aria-label={`Legg til ${event.name} til i ønskelisten`} tabIndex="0">Legg til i ønskeliste</button>
                     </div>  

@@ -1,0 +1,40 @@
+.home {
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        color: white;
+        margin-bottom: 4rem;
+    }
+
+    .attractions, .events{
+        background-color: white;
+        padding: 2rem;
+        margin-bottom: 5rem;
+        border-radius: 15px;
+
+        h3 {
+            color: black;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        a {
+            color: #F20530;
+        }
+    }
+
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%; 
+    
+        button{
+            margin-bottom: 1rem;
+        }
+    }
+}

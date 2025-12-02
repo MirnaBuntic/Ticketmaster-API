@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import Layout from './components/Layout';
 import Home from './components/Home';
 import EventPage from './components/EventPage';
+import "./styles/global.scss";
 
 export default function App() {
   //Variabel för att hämta attractions

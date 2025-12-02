@@ -1,0 +1,21 @@
+body, #root {
+    margin: 1rem;
+    background-color: #0D0D0D;
+    font-family: "Science Gothic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "wdth" 100,
+        "CTRS" 0;
+
+    header{
+
+        margin-bottom: 5rem;
+
+        a {
+            color: #F20544;
+            font-size: xx-large;
+        }
+    }
+}

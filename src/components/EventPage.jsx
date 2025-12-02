@@ -84,11 +84,11 @@ export default function EventPage({ attractions }) {
     }
 
     return (
-        <>
+        <div className="eventpage">
             {/*Brödsmulestig för att göra det tydligt för brukaren vart man befinner sig och ger möjlighet för att ta sig tillbaka till föregående sida*/}
             <nav aria-label="Brødsmulesti">
                 <ul>
-                    <li className="underline">
+                    <li>
                         <Link to="/" aria-label="Gå til startsiden">Startsiden</Link>
                     </li>
                     <li aria-hidden="true">{">"}</li>
@@ -100,7 +100,7 @@ export default function EventPage({ attractions }) {
 
             {/*Sektion för genre */}
             <section aria-label="Informasjon om sjanger og sosiale medier">
-                <article className="Sjanger" aria-label="Sjangere" tabIndex="0">
+                <article aria-label="Sjangere" tabIndex="0">
                     <h3>Sjanger:</h3>
                     <ul>
                         {/*Loopar genom genre och visar i listan*/}
@@ -113,7 +113,7 @@ export default function EventPage({ attractions }) {
                 {/*Sektion för sociala medier*/}
                 {/*Fick hjälp av chatgpt med användningen av object.keys för att få det som var i console logen synligt på sidan. nr4*/}
                 {/*Anledningen till att jag använder object.keys är för att socialmedia är ett object och inte en array, därav kan jag inte loopa över direkt med .map*/}
-                <article className="SoMe" aria-label="Festivalens sosiale medier">
+                <article aria-label="Festivalens sosiale medier">
                     <h3>Følg oss på sosiale medier:</h3>
                     {/*Om länkar finns så visas de här*/}
                     {Object.keys(socialMedia).length > 0 ? (
@@ -135,7 +135,7 @@ export default function EventPage({ attractions }) {
 
             {/*Sektion för festivalpass*/}
             {festivalPasses.length > 0 && (
-                <section className="festivaler" aria-label="Festivalpass"> 
+                <section aria-label="Festivalpass"> 
                     <h2>Festivalpass:</h2>
                     {/*Loopar genom varje festivalpass och visar de med eventcard*/}
                     {festivalPasses.map(pass => (
@@ -146,7 +146,7 @@ export default function EventPage({ attractions }) {
 
             {/*Sektion för artister*/}
             {artists.length > 0 && (
-                <section className="artister" aria-label="Liste over artister">
+                <section aria-label="Liste over artister">
                     <h2>Artister:</h2>
                     <ul>
                         {/*Loopar genom artister och visar varje artist med artistcard*/}
@@ -158,6 +158,6 @@ export default function EventPage({ attractions }) {
                     </ul>
                 </section>
             )}
-        </>
+        </div>
     );
 }

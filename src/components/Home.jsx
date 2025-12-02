@@ -43,8 +43,8 @@ export default function Home({ attractions }) {
     }, [city]);
 
     return(
-        <>
-            <section className="festivaler" aria-label="Festivaler denne sommeren" tabIndex="0">
+        <div className="home">
+            <section aria-label="Festivaler denne sommeren" tabIndex="0">
                 <h1 tabIndex="0">Sommerens festivaler!</h1>
                 {/*Loopar igenom attractions arrayen och renderar ett eventcard för varje attraktion. prop med attraction skicaks till eventcard*/}
                 {attractions?.map((attraction) => (
@@ -52,10 +52,10 @@ export default function Home({ attractions }) {
                 ))}
             </section>
 
-            <section className="storbyer" aria-label="Arrangementer i verdens storbyer" tabIndex="0"> 
+            <section aria-label="Arrangementer i verdens storbyer" tabIndex="0"> 
                 <h2>Hva skjer i verdens storbyer!</h2>
 
-                <div className="button-container" aria-label="Velg en av storbyene for å vise arragementer">
+                <div className="buttons" aria-label="Velg en av storbyene for å vise arragementer">
                     {/*Loopar igenom cities arrayen och renderar en knapp för varje city*/}
                     {cities.map((cityName) => (
                         <button key={cityName} onClick={() => setCity(cityName)}>
@@ -66,7 +66,7 @@ export default function Home({ attractions }) {
 
                 <h3 tabIndex= "0" aria-live="polite">Hva skjer i {city}</h3>
    
-                <div className="event_city" aria-label={`Arrangementer i ${city}`}>
+                <div aria-label={`Arrangementer i ${city}`}>
                     {/*Villkor om events finns så visas de här.*/}
                     {events.length > 0 ? (
                         //Loopar igenom events arrayen och renderar ett eventcard. prop med events skickas till eventcard
@@ -80,6 +80,6 @@ export default function Home({ attractions }) {
                     )}
                 </div>
             </section>
-        </>
+        </div>
     )
 }
