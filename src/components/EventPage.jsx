@@ -5,7 +5,7 @@ import EventCard from "./EventCard";
 
 
 //Tar emot attractions som prop från app.jsx
-export default function EventPage({ attractions, addToCart }) {
+export default function EventPage({ attractions, addToCart, removeFromCart, cart }) {
 
     //Hämtar slug från url:en /event/:slug
     const { slug } = useParams();
@@ -139,7 +139,7 @@ export default function EventPage({ attractions, addToCart }) {
                     <h2>Festivalpass:</h2>
                     {/*Loopar genom varje festivalpass och visar de med eventcard*/}
                     {festivalPasses.map(pass => (
-                        <EventCard key={pass.id} event={pass} addToCart={addToCart}/>
+                        <EventCard key={pass.id} event={pass} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart}/>
                     ))}
                 </section>
             )}

@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export default function Layout({ children, cart }) {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
     return (
         <>
             <header>
@@ -11,7 +13,7 @@ export default function Layout({ children, cart }) {
 
                     <Link to="/shoppingcart">
                         <FontAwesomeIcon icon={faCartShopping} className="icon" />
-                        {cart.length > 0 && <span>{cart.length}</span>}
+                        {totalItems > 0 && <span>{totalItems}</span>}
                     </Link>
                 </div>
             </header>

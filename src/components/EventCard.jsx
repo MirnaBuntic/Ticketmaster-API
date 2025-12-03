@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 //Tar emot props från home.jsx
-export default function EventCard({ attraction, event, showButtons = true, addToCart }) {
-    const [added, setAdded] = useState(false);
-
-    function handleBuy() {
-        addToCart(event);
-        setAdded(true);
-        setTimeout(() => setAdded(false), 800);
-    }
+export default function EventCard({ attraction, event, showButtons = true, addToCart, removeFromCart, cart = [] }) {
+ 
     //If test för att skilja på attraction del och event del
     //Här hade jag lite svårt att skilja på delarana när denna komponent skulle hålla på såpass mycket info.
     //Attraction delen står för hela "förstasidan" på eventpage dvs sommarens festivaler och hva skjer i verdens storbyer
@@ -63,8 +56,15 @@ export default function EventCard({ attraction, event, showButtons = true, addTo
         )
     }
 
+    const itemInCart = event 
+      ? cart.find((item) => item.id === event.id)
+      : null;
+      
     //Denna del visar festivalpassen
     if (event) {
+
+        const itemInCart = cart.find((item) => item.id === event.id)
+
         return (
             <article className="eventcard" aria-label={`Informasjon om arrangement: ${event.name}`} tabIndex="0">
                 {event.image && <img src={event.image} alt={`Bilde av ${event.name}`} />}
@@ -73,12 +73,31 @@ export default function EventCard({ attraction, event, showButtons = true, addTo
                     <p>{event.venue}</p>
                     <p>{event.date}</p>
                 </div>
+
                 {showButtons && (
-                    <div className="buy"> 
-                        <button onClick={handleBuy} type="button" aria-label={`Kjøp billetter til ${event.name}`} tabIndex ="0">Kjøp</button>
-                        {added && <div className="added-popup">Lagt i handlekurv ✓</div>}
-                    </div>  
-                )}   
+                    <div className="buy">
+                        {/* Om inte i handlekurven → Kjøp-knapp */}
+                        {!itemInCart && (
+                            <button
+                                onClick={() => addToCart(event)}
+                                type="button"
+                                aria-label={`Kjøp billetter til ${event.name}`}
+                                tabIndex="0"
+                            >
+                                Kjøp
+                            </button>
+                        )}
+
+                        {/* Om i handlekurven → + / - och antall */}
+                        {itemInCart && (
+                            <div className="quantity">
+                                <button onClick={() => removeFromCart(event.id)}>-</button>
+                                <p>Antall: {itemInCart.quantity}</p>
+                                <button onClick={() => addToCart(event)}>+</button>
+                            </div>
+                        )}
+                    </div>
+                )}
             </article>
         )
     }

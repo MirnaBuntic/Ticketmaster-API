@@ -13,11 +13,29 @@ export default function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(item) {
-    setCart(prev => [...prev, item]);
+    setCart(prev => {
+    const existing = prev.find(i => i.id === item.id)
+
+    if (existing) {
+      return prev.map(i =>
+        i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+      )
+    }
+
+      return [...prev, { ...item, quantity: 1 }];
+    })
   }
 
-  function removeFromCart(index) {
-    setCart(prev => prev.filter((_, i) => i !== index));
+  function removeFromCart(id) {
+    setCart(prev => {
+      return prev
+        .map(item =>
+          item.id === id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter(item => item.quantity > 0)
+    })
   }
 
   const getAttractions = async () => {
@@ -59,8 +77,8 @@ export default function App() {
       <Layout cart={cart}>
         <Routes>
           <Route path='/' element={<Home attractions={attractions} />}></Route>
-          <Route path='/event/:slug' element={<EventPage attractions={attractions} addToCart={addToCart} />}></Route>
-          <Route path='/shoppingcart' element={<ShoppingCart cart={cart} removeFromCart={removeFromCart}/>}></Route>
+          <Route path='/event/:slug' element={<EventPage attractions={attractions} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />}></Route>
+          <Route path='/shoppingcart' element={<ShoppingCart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>}></Route>
         </Routes>
       </Layout>
     </>
