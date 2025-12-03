@@ -1,7 +1,4 @@
-body, #root {
-    margin: 1rem;
-    background: linear-gradient(135deg, #F20544, #0b44a5);
-    background-attachment: fixed;
+body{
     font-family: "Science Gothic", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -9,49 +6,64 @@ body, #root {
         "slnt" 0,
         "wdth" 100,
         "CTRS" 0;
+    margin: 0;
 
+    .gradient {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(135deg, #f20544, #0b44a5);
+    }
 
-    header{
-        div {
-            display: flex;
-            margin-bottom: 4rem;
-            justify-content: space-between;
+    .layout {
+        padding: 1rem;
 
-            #logo {
-                color: #6f021f;
-                font-size: xx-large;
+        header{
+            div {
+                display: flex;
+                margin-bottom: 4rem;
+                justify-content: space-between;
+
+                #logo {
+                    color: #6f021f;
+                    font-size: xx-large;
+                }
+
+                a {
+                    background-color: transparent;
+                    font-size: xx-large;
+                    padding: 0;
+                    color: white;
+
+                    &:hover {
+                        color: #6f021f;
+                    }
+
+                    span {
+                        font-size: small;
+                    }
+                }
             }
+
+        }
+
+        .added-popup {
+            color: black;
+            margin-top: 1rem;
+        }
+
+        footer {
+            font-weight: 300;
+            color: white;
+            margin-top: 6rem;
 
             a {
-                background-color: transparent;
-                font-size: xx-large;
-                padding: 0;
-                color: white;
-
-                &:hover {
-                    color: #6f021f;
-                }
-
-                span {
-                    font-size: small;
-                }
+                color: #F20544;
             }
         }
-
     }
+}
 
-    .added-popup {
-        color: black;
-        margin-top: 1rem;
-    }
-
-    footer {
-        font-weight: 300;
-        color: white;
-        margin-top: 6rem;
-
-        a {
-            color: #F20544;
-        }
-    }
+#root {
+    min-height: 100vh;
 }

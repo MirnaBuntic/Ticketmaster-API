@@ -7,29 +7,33 @@ export default function Layout({ children, cart }) {
 
     return (
         <>
-            <header>
-                <div>
-                    <Link to="/" id="logo">Tickets</Link>
+            <div className="gradient"/>
 
-                    <Link to="/shoppingcart">
-                        <FontAwesomeIcon icon={faCartShopping} className="icon" />
-                        {totalItems > 0 && <span>{totalItems}</span>}
-                    </Link>
-                </div>
-            </header>
+            <div className="layout">
+                <header>
+                    <div>
+                        <Link to="/" id="logo">Tickets</Link>
 
-            <main>
-                {children}
-            </main>
+                        <Link to="/shoppingcart">
+                            <FontAwesomeIcon icon={faCartShopping} className="icon" />
+                            {totalItems > 0 && <span>{totalItems}</span>}
+                        </Link>
+                    </div>
+                </header>
 
-            <footer>
-                <p>Alt av eventer, attraksjoner og spillesteder er tilgjengeliggjort og levert av {" "}
-                    <a 
-                    href= "https://developer.ticketmaster.com/"
-                    target="_blank"
-                    >Ticketmaster Discovery API</a>
-                </p>
-            </footer>
+                <main>
+                    {children}
+                </main>
+
+                <footer>
+                    <p>Alt av eventer, attraksjoner og spillesteder er tilgjengeliggjort og levert av {" "}
+                        <a 
+                        href= "https://developer.ticketmaster.com/"
+                        target="_blank"
+                        >Ticketmaster Discovery API</a>
+                    </p>
+                </footer>
+            </div>
         </>
     )
 }
