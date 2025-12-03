@@ -100,6 +100,10 @@
                 margin: 0;
                 background-color: transparent;
                 color: white;
+
+                &:hover {
+                    background-color: transparent !important;
+                }
             }
         }
     }
