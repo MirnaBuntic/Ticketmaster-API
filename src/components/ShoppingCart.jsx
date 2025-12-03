@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function ShoppingCart({ cart, removeFromCart, addToCart }) {
+export default function ShoppingCart({ cart, removeFromCart, addToCart, removeCompletely }) {
     return (
         <div className="shoppingcart">
             <h2>Handlekurv</h2>
@@ -18,7 +18,17 @@ export default function ShoppingCart({ cart, removeFromCart, addToCart }) {
 
                     {/* quantity-knappar */}
                     <div className="quantity">
-                        <button onClick={() => removeFromCart(item.id)}>-</button>
+                        <button
+                            onClick={() => {
+                                if (item.quantity === 1) {
+                                    const ok = window.confirm(`Er du sikker på at du vil fjerne ${item.name} fra handlekurven?`);
+                                    if (!ok) return; // avbryt om man trycker nei
+                                }
+                                removeFromCart(item.id); // kör som vanligt
+                            }}
+                            >
+                            -
+                            </button>
                         <p>Antall: {item.quantity}</p>
                         <button onClick={() => addToCart(item)}>+</button>
                     </div>
@@ -26,7 +36,12 @@ export default function ShoppingCart({ cart, removeFromCart, addToCart }) {
                     {/* ta bort helt */}
                     <button 
                         className="remove-btn"
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() => {
+                            const ok = window.confirm(`Er du sikker på at du vil fjerne ${item.name} fra handlekurven?`);
+                            if (ok) {
+                            removeCompletely(item.id);
+                            }
+                        }}
                         aria-label="Fjern varen"
                     >
                         <FontAwesomeIcon icon={faTrash} />

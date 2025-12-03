@@ -38,6 +38,10 @@ export default function App() {
     })
   }
 
+  function removeCompletely(id) {
+    setCart(prev => prev.filter(item => item.id !== id));
+  }
+
   const getAttractions = async () => {
 
   const apiKey = '4P5afjX98PHm5yhdSLbee6G9PVKAQGB7'; //api nyckel
@@ -78,7 +82,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home attractions={attractions} />}></Route>
           <Route path='/event/:slug' element={<EventPage attractions={attractions} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />}></Route>
-          <Route path='/shoppingcart' element={<ShoppingCart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>}></Route>
+          <Route path='/shoppingcart' element={<ShoppingCart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeCompletely={removeCompletely} />}></Route>
         </Routes>
       </Layout>
     </>
@@ -86,3 +90,4 @@ export default function App() {
 }
 
 
+ 
