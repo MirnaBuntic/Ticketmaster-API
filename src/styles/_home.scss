@@ -42,6 +42,11 @@
     
         button{
             margin-bottom: 1rem;
+
+            &:hover {
+                background-color: white;
+                color: #8C0327;
+            }
         }
     }
 

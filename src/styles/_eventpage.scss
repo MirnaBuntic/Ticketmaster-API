@@ -72,6 +72,10 @@
             
             button {
                 margin-top: 2rem;
+
+                &:hover {
+                    background-color: #5a041b;
+                }
             }
         }
 

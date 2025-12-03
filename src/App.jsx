@@ -4,10 +4,21 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import EventPage from './components/EventPage';
 import "./styles/global.scss";
+import ShoppingCart from './components/ShoppingCart';
 
 export default function App() {
+
   //Variabel för att hämta attractions
   const [attractions, setAttractions] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  function addToCart(item) {
+    setCart(prev => [...prev, item]);
+  }
+
+  function removeFromCart(index) {
+    setCart(prev => prev.filter((_, i) => i !== index));
+  }
 
   const getAttractions = async () => {
 
@@ -45,10 +56,11 @@ export default function App() {
 
   return (
     <>
-      <Layout>
+      <Layout cart={cart}>
         <Routes>
           <Route path='/' element={<Home attractions={attractions} />}></Route>
-          <Route path='/event/:slug' element={<EventPage attractions={attractions} />}></Route>
+          <Route path='/event/:slug' element={<EventPage attractions={attractions} addToCart={addToCart} />}></Route>
+          <Route path='/shoppingcart' element={<ShoppingCart cart={cart} removeFromCart={removeFromCart}/>}></Route>
         </Routes>
       </Layout>
     </>

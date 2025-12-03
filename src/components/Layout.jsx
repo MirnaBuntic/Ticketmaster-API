@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-export default function Layout({ children }) {
+export default function Layout({ children, cart }) {
     return (
         <>
             <header>
-                <Link to="/">Tickets</Link>
+                <div>
+                    <Link to="/" id="logo">Tickets</Link>
+
+                    <Link to="/shoppingcart">
+                        <FontAwesomeIcon icon={faCartShopping} className="icon" />
+                        {cart.length > 0 && <span>{cart.length}</span>}
+                    </Link>
+                </div>
             </header>
 
             <main>

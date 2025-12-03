@@ -1,0 +1,44 @@
+.shoppingcart {
+    h2 {
+        margin-bottom: 3rem;
+        text-align: center;
+        color: white;
+    }
+
+    p {
+        color: white;
+        text-align: center;
+    }
+
+    .cart-card {
+        background-color: white;
+        padding: 1.5rem;
+        margin-bottom: 5rem;
+        border-radius: 15px;
+
+        img {
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        h3 {
+            color: black;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        p {
+            color: #F20530;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        button {
+            background-color: transparent;
+            color: black;
+            font-size: larger;
+            padding: 0;
+        }
+
+    }
+}

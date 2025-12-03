@@ -12,12 +12,37 @@ body, #root {
 
 
     header{
-        margin-bottom: 4rem;
+        div {
+            display: flex;
+            margin-bottom: 4rem;
+            justify-content: space-between;
 
-        a {
-            color: #6f021f;
-            font-size: xx-large;
+            #logo {
+                color: #6f021f;
+                font-size: xx-large;
+            }
+
+            a {
+                background-color: transparent;
+                font-size: xx-large;
+                padding: 0;
+                color: white;
+
+                &:hover {
+                    color: #6f021f;
+                }
+
+                span {
+                    font-size: small;
+                }
+            }
         }
+
+    }
+
+    .added-popup {
+        color: black;
+        margin-top: 1rem;
     }
 
     footer {

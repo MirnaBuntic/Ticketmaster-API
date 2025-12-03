@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 //Tar emot props från home.jsx
-export default function EventCard({ attraction, event, showButtons = true }) {
-    
+export default function EventCard({ attraction, event, showButtons = true, addToCart }) {
+    const [added, setAdded] = useState(false);
+
+    function handleBuy() {
+        addToCart(event);
+        setAdded(true);
+        setTimeout(() => setAdded(false), 800);
+    }
     //If test för att skilja på attraction del och event del
     //Här hade jag lite svårt att skilja på delarana när denna komponent skulle hålla på såpass mycket info.
     //Attraction delen står för hela "förstasidan" på eventpage dvs sommarens festivaler och hva skjer i verdens storbyer
@@ -53,7 +60,7 @@ export default function EventCard({ attraction, event, showButtons = true }) {
                     </article>       
                 )}
             </>
-        );
+        )
     }
 
     //Denna del visar festivalpassen
@@ -68,8 +75,8 @@ export default function EventCard({ attraction, event, showButtons = true }) {
                 </div>
                 {showButtons && (
                     <div className="buy"> 
-                        <button type="button" aria-label={`Kjøp billetter til ${event.name}`} tabIndex ="0">Kjøp</button>
-                        <button type="button" aria-label={`Legg til ${event.name} til i ønskelisten`} tabIndex="0">Legg til i ønskeliste</button>
+                        <button onClick={handleBuy} type="button" aria-label={`Kjøp billetter til ${event.name}`} tabIndex ="0">Kjøp</button>
+                        {added && <div className="added-popup">Lagt i handlekurv ✓</div>}
                     </div>  
                 )}   
             </article>
