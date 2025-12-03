@@ -11,14 +11,12 @@ export default function Layout({ children, cart }) {
 
             <div className="layout">
                 <header>
-                    <div>
-                        <Link to="/" id="logo">Tickets</Link>
+                    <Link to="/" id="logo">Tickets</Link>
 
-                        <Link to="/shoppingcart">
-                            <FontAwesomeIcon icon={faCartShopping} className="icon" />
-                            {totalItems > 0 && <span>{totalItems}</span>}
-                        </Link>
-                    </div>
+                    <Link to="/shoppingcart">
+                        <FontAwesomeIcon icon={faCartShopping} className="icon" />
+                        {totalItems > 0 && <span>{totalItems}</span>}
+                    </Link>
                 </header>
 
                 <main>

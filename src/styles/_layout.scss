@@ -16,32 +16,29 @@ body{
     }
 
     .layout {
-        padding: 1rem;
-
         header{
-            div {
-                display: flex;
-                margin-bottom: 4rem;
-                justify-content: space-between;
+            display: flex;
+            margin-bottom: 4rem;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            padding: 1rem;
+            background: rgb(0 0 0 / 63%);
+            backdrop-filter: blur(10px);
 
-                #logo {
-                    color: #6f021f;
-                    font-size: xx-large;
-                }
+            #logo {
+                color: white;
+                font-size: xx-large;
+            }
 
-                a {
-                    background-color: transparent;
-                    font-size: xx-large;
-                    padding: 0;
-                    color: white;
+            a {
+                background-color: transparent;
+                font-size: xx-large;
+                padding: 0;
+                color: white;
 
-                    &:hover {
-                        color: #6f021f;
-                    }
-
-                    span {
-                        font-size: small;
-                    }
+                span {
+                    font-size: small;
                 }
             }
 
@@ -50,6 +47,10 @@ body{
         .added-popup {
             color: black;
             margin-top: 1rem;
+        }
+
+        main {
+            padding: 1rem;
         }
 
         footer {
