@@ -1,6 +1,7 @@
 body, #root {
     margin: 1rem;
-    background-color: #0D0D0D;
+    background: linear-gradient(135deg, #F20544, #0b44a5);
+    background-attachment: fixed;
     font-family: "Science Gothic", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -9,13 +10,23 @@ body, #root {
         "wdth" 100,
         "CTRS" 0;
 
-    header{
 
-        margin-bottom: 5rem;
+    header{
+        margin-bottom: 4rem;
+
+        a {
+            color: #6f021f;
+            font-size: xx-large;
+        }
+    }
+
+    footer {
+        font-weight: 300;
+        color: white;
+        margin-top: 6rem;
 
         a {
             color: #F20544;
-            font-size: xx-large;
         }
     }
 }

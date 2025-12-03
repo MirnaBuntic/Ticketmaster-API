@@ -29,12 +29,13 @@ export default function EventCard({ attraction, event, showButtons = true }) {
         return (
             <>
                 {!isEvent && (
-                    <article className="attractions" aria-label={`Informasjon om attraksjon med navn: ${attraction.name}`} tabIndex="0">
-                        {imageUrl && <img src={imageUrl} alt={`Bilde av ${attraction.name}`} />}
-                        <h3 tabIndex="0">{attraction.name}</h3>
-                        <Link to={`/event/${slug}`}
-                        aria-label={`Les mer om ${attraction.name}`}>Les mer om {attraction.name}</Link>
-                    </article>
+                    <Link to={`/event/${slug}`} aria-label={`Les mer om ${attraction.name}`}>
+                        <article className="attractions" aria-label={`Informasjon om attraksjon med navn: ${attraction.name}`} tabIndex="0">
+                            {imageUrl && <img src={imageUrl} alt={`Bilde av ${attraction.name}`} />}
+                            <h3 tabIndex="0">{attraction.name}</h3>
+                            <p>Les mer om {attraction.name}</p>
+                        </article>
+                    </Link>
                 )}
     
                 {isEvent && (
@@ -61,12 +62,12 @@ export default function EventCard({ attraction, event, showButtons = true }) {
             <article className="eventcard" aria-label={`Informasjon om arrangement: ${event.name}`} tabIndex="0">
                 {event.image && <img src={event.image} alt={`Bilde av ${event.name}`} />}
                 <h3 tabIndex="0">{event.name}</h3>
-                <div>
+                <div className="div1">
                     <p>{event.venue}</p>
                     <p>{event.date}</p>
                 </div>
                 {showButtons && (
-                    <div> 
+                    <div className="buy"> 
                         <button type="button" aria-label={`Kjøp billetter til ${event.name}`} tabIndex ="0">Kjøp</button>
                         <button type="button" aria-label={`Legg til ${event.name} til i ønskelisten`} tabIndex="0">Legg til i ønskeliste</button>
                     </div>  

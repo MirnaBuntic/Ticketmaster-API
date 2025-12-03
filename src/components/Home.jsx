@@ -45,7 +45,7 @@ export default function Home({ attractions }) {
     return(
         <div className="home">
             <section aria-label="Festivaler denne sommeren" tabIndex="0">
-                <h1 tabIndex="0">Sommerens festivaler!</h1>
+                <h1 tabIndex="0">Sommerens heteste festivaler!</h1>
                 {/*Loopar igenom attractions arrayen och renderar ett eventcard för varje attraktion. prop med attraction skicaks till eventcard*/}
                 {attractions?.map((attraction) => (
                     <EventCard key={attraction.id} attraction={attraction} />
@@ -64,7 +64,7 @@ export default function Home({ attractions }) {
                     ))}
                 </div>
 
-                <h3 tabIndex= "0" aria-live="polite">Hva skjer i {city}</h3>
+                <h2 tabIndex= "0" aria-live="polite">Hva skjer i {city}</h2>
    
                 <div aria-label={`Arrangementer i ${city}`}>
                     {/*Villkor om events finns så visas de här.*/}
