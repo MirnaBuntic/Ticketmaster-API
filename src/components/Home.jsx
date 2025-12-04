@@ -66,8 +66,9 @@ export default function Home({ attractions }) {
 
             <div className="home">
 
-                <section aria-label="Festivaler denne sommeren" tabIndex="0">
+                <section className="showFest" aria-label="Festivaler denne sommeren" tabIndex="0">
                     {/*Loopar igenom attractions arrayen och renderar ett eventcard för varje attraktion. prop med attraction skicaks till eventcard*/}
+                    <h2>Book din opplevelse idag!</h2>
                     <div className="flexFestival">
                         {attractions?.map((attraction) => (
                             <EventCard key={attraction.id} attraction={attraction} />
