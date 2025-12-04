@@ -1,28 +1,29 @@
-.home {
-    .videoContainer {
+.videoContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 18vh;
+    margin-bottom: 4rem;
+
+    .festival-video {
         width: 100%;
-        overflow: hidden;
-        position: relative;
-        height: 18vh;
-        margin-bottom: 4rem;
-
-        .festival-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            text-align: center;
-            color: white;
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
     }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        color: white;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.home {
 
     h2 {
         color: white;
@@ -30,8 +31,12 @@
         margin-top: 0;
     }
 
-    .flexFestival {
+    .flexFestival, .whatCity {
         padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5%;
     }
 
     .whatsUp {
@@ -43,6 +48,8 @@
         padding: 1.5rem;
         margin-bottom: 5rem;
         border-radius: 15px;
+        max-width: 300px;
+        min-height: 310px;
 
         h3 {
             color: black;
@@ -86,4 +93,27 @@
             text-align: center;
         }
     }    
+}
+
+@media (min-width: 768px) {
+    .videoContainer {
+        height: 38vh;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .home {
+        margin-left: 10rem;
+        margin-right: 10rem;
+
+        .flexFestival {
+            margin-top: 15rem;
+            margin-bottom: 5rem;
+        }
+
+        .buttons {
+            margin-bottom: 10rem;
+        }
+    }
 }

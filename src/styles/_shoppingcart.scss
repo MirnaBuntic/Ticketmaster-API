@@ -12,11 +12,20 @@
         text-align: center;
     }
 
+    .cartFlex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5%;
+    }
+
     .cart-card {
         background-color: white;
         padding: 1.5rem;
         margin-bottom: 5rem;
         border-radius: 15px;
+        max-height: 620px;
+        max-width: 400px;
 
         img {
             margin-bottom: 2rem;

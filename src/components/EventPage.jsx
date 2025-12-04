@@ -137,10 +137,12 @@ export default function EventPage({ attractions, addToCart, removeFromCart, cart
             {festivalPasses.length > 0 && (
                 <section className="festivalpass" aria-label="Festivalpass"> 
                     <h2>Festivalpass:</h2>
-                    {/*Loopar genom varje festivalpass och visar de med eventcard*/}
-                    {festivalPasses.map(pass => (
-                        <EventCard key={pass.id} event={pass} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart}/>
-                    ))}
+                    <div className="passFlex">
+                        {/*Loopar genom varje festivalpass och visar de med eventcard*/}
+                            {festivalPasses.map(pass => (
+                                <EventCard key={pass.id} event={pass} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart}/>
+                        ))}
+                    </div>
                 </section>
             )}
 
@@ -148,7 +150,7 @@ export default function EventPage({ attractions, addToCart, removeFromCart, cart
             {artists.length > 0 && (
                 <section className="artists" aria-label="Liste over artister">
                     <h2>Artister:</h2>
-                    <ul>
+                    <ul className="artistFlex">
                         {/*Loopar genom artister och visar varje artist med artistcard*/}
                         {artists.map((artist) => (
                             <li key={artist.id}>

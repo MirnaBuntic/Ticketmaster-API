@@ -45,65 +45,66 @@ export default function Home({ attractions }) {
     }, [city]);
 
     return(
-        <div className="home">
-
+        <>
             <div className="videoContainer">
-                <video
-                    className="festival-video"
-                    src={festivalVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    ref={(video) => {
-                        if (video) {
-                            video.playbackRate = 0.7; 
-                        }
-                    }}
-                />
+                        <video
+                            className="festival-video"
+                            src={festivalVideo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            ref={(video) => {
+                                if (video) {
+                                    video.playbackRate = 0.7; 
+                                }
+                            }}
+                        />
 
-                <h1>Opplev sommerens festivaler!</h1>
+                    <h1>Opplev sommerens festivaler!</h1>
+                </div>
+
+            <div className="home">
+
+                <section aria-label="Festivaler denne sommeren" tabIndex="0">
+                    {/*Loopar igenom attractions arrayen och renderar ett eventcard för varje attraktion. prop med attraction skicaks till eventcard*/}
+                    <div className="flexFestival">
+                        {attractions?.map((attraction) => (
+                            <EventCard key={attraction.id} attraction={attraction} />
+                        ))}
+                    </div>
+                    
+                </section>
+
+                <section aria-label="Arrangementer i verdens storbyer" tabIndex="0" className="whatsUp"> 
+                    <h2>Hva skjer i verdens storbyer?</h2>
+
+                    <div className="buttons" aria-label="Velg en av storbyene for å vise arragementer">
+                        {/*Loopar igenom cities arrayen och renderar en knapp för varje city*/}
+                        {cities.map((cityName) => (
+                            <button key={cityName} onClick={() => setCity(cityName)}>
+                                {cityName}
+                            </button>
+                        ))}
+                    </div>
+
+                    <h2 tabIndex= "0" aria-live="polite">Hva skjer i {city}?</h2>
+    
+                    <div className="whatCity" aria-label={`Arrangementer i ${city}`}>
+                        {/*Villkor om events finns så visas de här.*/}
+                        {events.length > 0 ? (
+                            //Loopar igenom events arrayen och renderar ett eventcard. prop med events skickas till eventcard
+                            events.map((event) => (
+                                <EventCard key={event.id} attraction={event} showMoreLink={false}/>
+                            ))
+                        ) : (
+                            <div>
+                                <p>Ingen events funnet i {city}.</p>
+                        </div>
+                        )}
+                    </div>
+                </section>
             </div>
-           
-
-            <section aria-label="Festivaler denne sommeren" tabIndex="0">
-                {/*Loopar igenom attractions arrayen och renderar ett eventcard för varje attraktion. prop med attraction skicaks till eventcard*/}
-                <div className="flexFestival">
-                    {attractions?.map((attraction) => (
-                        <EventCard key={attraction.id} attraction={attraction} />
-                    ))}
-                </div>
-                
-            </section>
-
-            <section aria-label="Arrangementer i verdens storbyer" tabIndex="0" className="whatsUp"> 
-                <h2>Hva skjer i verdens storbyer?</h2>
-
-                <div className="buttons" aria-label="Velg en av storbyene for å vise arragementer">
-                    {/*Loopar igenom cities arrayen och renderar en knapp för varje city*/}
-                    {cities.map((cityName) => (
-                        <button key={cityName} onClick={() => setCity(cityName)}>
-                            {cityName}
-                        </button>
-                    ))}
-                </div>
-
-                <h2 tabIndex= "0" aria-live="polite">Hva skjer i {city}?</h2>
-   
-                <div aria-label={`Arrangementer i ${city}`}>
-                    {/*Villkor om events finns så visas de här.*/}
-                    {events.length > 0 ? (
-                        //Loopar igenom events arrayen och renderar ett eventcard. prop med events skickas till eventcard
-                        events.map((event) => (
-                            <EventCard key={event.id} attraction={event} showMoreLink={false}/>
-                        ))
-                    ) : (
-                        <div>
-                            <p>Ingen events funnet i {city}.</p>
-                       </div>
-                    )}
-                </div>
-            </section>
-        </div>
+        </>
     )
 }
