@@ -12,19 +12,19 @@ body{
         position: fixed;
         inset: 0;
         z-index: -1;
-        background: linear-gradient(135deg, #f20544, #0b44a5);
+        background: linear-gradient(135deg, #f20544bd, #0b44a5);
     }
 
     .layout {
         header{
             display: flex;
-            margin-bottom: 4rem;
             justify-content: space-between;
             position: sticky;
             top: 0;
             padding: 1rem;
-            background: rgb(0 0 0 / 63%);
-            backdrop-filter: blur(10px);
+            background-color: black;
+            z-index: 10;
+            align-items: center;
 
             #logo {
                 color: white;
@@ -33,7 +33,7 @@ body{
 
             a {
                 background-color: transparent;
-                font-size: xx-large;
+                font-size: x-large;
                 padding: 0;
                 color: white;
 
@@ -49,14 +49,11 @@ body{
             margin-top: 1rem;
         }
 
-        main {
-            padding: 1rem;
-        }
-
         footer {
             font-weight: 300;
             color: white;
             margin-top: 6rem;
+            padding: 1rem;
 
             a {
                 color: #F20544;

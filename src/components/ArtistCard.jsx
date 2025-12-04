@@ -2,7 +2,7 @@
 export default function ArtistCard({ artist }) {
 
     //Variabler för bild och namn på artister
-    const imageUrl = artist?.images?.[0]?.url;
+    const imageUrl = artist?.images?.[2]?.url;
     const name = artist?.name || "Ukjent artist";
 
     return (

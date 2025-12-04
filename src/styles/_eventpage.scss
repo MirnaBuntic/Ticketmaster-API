@@ -1,19 +1,23 @@
 .eventpage {
+    padding: 1rem;
+
     .breadcrumb ul {
         list-style: none;
         padding: 0;
         display: flex;
         gap: 3%;
         margin-bottom: 3rem;
+        color: white;
 
         a {
-            color: #5a041b;
+            color: white;
             text-decoration: underline;
         }
     }
 
-    h2 {
+    h2, h3, figcaption {
         margin-bottom: 2rem;
+        color: white;
     }
     
     .genre, .some {
@@ -31,6 +35,10 @@
 
         p {
             color: #ff1b58;
+        }
+
+        li {
+            text-decoration: underline;
         }
     }
 

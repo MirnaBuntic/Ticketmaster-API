@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 //Tar emot props från home.jsx
 export default function EventCard({ attraction, event, showButtons = true, addToCart, removeFromCart, cart = [] }) {
@@ -9,7 +11,7 @@ export default function EventCard({ attraction, event, showButtons = true, addTo
     if (attraction) {
 
         //Variabel som håller bildens url från attractions objektet
-        const imageUrl = attraction.images?.[0]?.url;
+        const imageUrl = attraction.images?.[3]?.url;
 
         //slug making
         const slug = attraction.name.toLowerCase().replace(/\s+/g, '-');
@@ -33,7 +35,7 @@ export default function EventCard({ attraction, event, showButtons = true, addTo
                         <article className="attractions" aria-label={`Informasjon om attraksjon med navn: ${attraction.name}`} tabIndex="0">
                             {imageUrl && <img src={imageUrl} alt={`Bilde av ${attraction.name}`} />}
                             <h3 tabIndex="0">{attraction.name}</h3>
-                            <p>Les mer om {attraction.name}</p>
+                            <p>Les mer om {attraction.name} <FontAwesomeIcon icon={faCircleArrowRight} /></p>
                         </article>
                     </Link>
                 )}

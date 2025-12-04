@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import EventCard from "./EventCard"
+import festivalVideo from "../video/Video uten navn – Laget med Clipchamp (1).mp4"
+
 
 export default function Home({ attractions }) {
     
@@ -44,8 +46,27 @@ export default function Home({ attractions }) {
 
     return(
         <div className="home">
+
+            <div className="videoContainer">
+                <video
+                    className="festival-video"
+                    src={festivalVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    ref={(video) => {
+                        if (video) {
+                            video.playbackRate = 0.7; 
+                        }
+                    }}
+                />
+
+                <h1>Opplev sommerens festivaler!</h1>
+            </div>
+           
+
             <section aria-label="Festivaler denne sommeren" tabIndex="0">
-                <h1 tabIndex="0">Sommerens heteste festivaler!</h1>
                 {/*Loopar igenom attractions arrayen och renderar ett eventcard för varje attraktion. prop med attraction skicaks till eventcard*/}
                 <div className="flexFestival">
                     {attractions?.map((attraction) => (
@@ -55,8 +76,8 @@ export default function Home({ attractions }) {
                 
             </section>
 
-            <section aria-label="Arrangementer i verdens storbyer" tabIndex="0"> 
-                <h2>Hva skjer i verdens storbyer!</h2>
+            <section aria-label="Arrangementer i verdens storbyer" tabIndex="0" className="whatsUp"> 
+                <h2>Hva skjer i verdens storbyer?</h2>
 
                 <div className="buttons" aria-label="Velg en av storbyene for å vise arragementer">
                     {/*Loopar igenom cities arrayen och renderar en knapp för varje city*/}
@@ -67,7 +88,7 @@ export default function Home({ attractions }) {
                     ))}
                 </div>
 
-                <h2 tabIndex= "0" aria-live="polite">Hva skjer i {city}</h2>
+                <h2 tabIndex= "0" aria-live="polite">Hva skjer i {city}?</h2>
    
                 <div aria-label={`Arrangementer i ${city}`}>
                     {/*Villkor om events finns så visas de här.*/}
